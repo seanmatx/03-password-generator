@@ -1,10 +1,11 @@
-// Assignment Code
+// Variables of the different categories of characters in the password
 var generateBtn = document.querySelector("#generate");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lowerCase = "abcdefghijklmnopqrstuvwxyz"
 var numbers = "0123456789"
 var symbols = " !@#$%^&*()_-+=";
 
+//  Variables of characters selected to be included in the password
 var passwordUpperCase;
 var passwordLowerCase;
 var passwordNumbers;
@@ -32,6 +33,8 @@ function generatePassword(){
   passwordNumbers=confirm ("Do you want any numbers in your password?");
   passwordSymbols=confirm ("Would you like any symbols in your password?");
 
+
+// possiblePassword = full range of characters based on submitted length; IF confirming what types of characters to included, randomizing the inclusion of at least one of those characters selected.
   let possiblePassword = "";
   if (passwordUpperCase){
     password+=upperCase[Math.floor(Math.random()*upperCase.length)];
@@ -50,12 +53,8 @@ function generatePassword(){
       password+=symbols[Math.floor(Math.random()*symbols.length)];
       possiblePassword+= symbols;
   }
-    // taking true statement of uppercase, and selecting an uppercase character to add to password
-  
 
-  console.log (password);
-  console.log (possiblePassword);
-
+  // taking true statement of uppercase, and selecting an uppercase character to add to password
   for(var i=password.length; i<passwordLength; i++){
     password+=possiblePassword[Math.floor(Math.random()*possiblePassword.length)];
 
